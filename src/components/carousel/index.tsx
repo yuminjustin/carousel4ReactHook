@@ -121,7 +121,7 @@ const Carousel = (props: Options) => {
           height,
         }}
       >
-        {items.map((item: any, key: number) => {
+        {items.map((item: ReactNode, key: number) => {
           return (
             <div
               className="_carousel_item"
@@ -161,7 +161,7 @@ const Carousel = (props: Options) => {
           transform: `translate(${-idx * width}px, 0px)`,
         }}
       >
-        {items.map((item: any, key: number) => {
+        {items.map((item: ReactNode, key: number) => {
           return (
             <div
               className="_carousel_item2"
