@@ -22,6 +22,7 @@ const IndicatorItem = (props: any) => {
       <span
         style={{
           width: `${percent}%`,
+          transitionDuration: `${step}ms`
         }}
       ></span>
     </div>

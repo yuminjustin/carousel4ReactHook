@@ -98,7 +98,7 @@ const Carousel = (props: Options) => {
   }, [play, idx]);
 
   useEffect(() => {
-    setStyle(Object.assign({ width, height }, props.style || {}));
+    setStyle(Object.assign({}, props.style || {}, { width, height }));
   }, [width]);
 
   const controlsBtns = [
