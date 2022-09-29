@@ -1,8 +1,5 @@
 import React from "react";
 import "./assets/styles/App.scss";
-import Phone from "./assets/imgs/iphone.png";
-import Tablet from "./assets/imgs/tablet.png";
-import Airpods from "./assets/imgs/airpods.png";
 import Carousel from "./components/carousel";
 
 function App() {
@@ -15,125 +12,32 @@ function App() {
         height={300}
         style={{ margin: "0 auto" }}
       >
-        <div
-          className="my_carousel_item _white"
-          style={{
-            backgroundImage: `url(${Phone})`,
-          }}
-        >
-          <div className="description">
-            <h3>xPhone</h3>
-            <p>Lots to love. Less to spend</p>
-            <p>Starting at $399</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item"
-          style={{
-            backgroundImage: `url(${Tablet})`,
-          }}
-        >
-          <div className="description">
-            <h3>Tablet</h3>
-            <p>Just the right amount of everything</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item"
-          style={{
-            backgroundImage: `url(${Airpods})`,
-          }}
-        >
-          <div className="description">
-            <h3>Buy a Tablet or xPhone for collge</h3>
-            <h3>Get arPods</h3>
-          </div>
-        </div>
+        <div className="_item">1</div>
+        <div className="_item">2</div>
+        <div className="_item">3</div>
       </Carousel>
-      <p>controls:false | 690*600</p>
+      <p>controls:false | 480*300</p>
       <Carousel
         controls={false}
-        width={960}
-        height={600}
+        width={480}
+        height={300}
         style={{ margin: "0 auto" }}
       >
-        <div
-          className="my_carousel_item my_carousel_item2 _white"
-          style={{
-            backgroundImage: `url(${Phone})`,
-          }}
-        >
-          <div className="description">
-            <h3>xPhone</h3>
-            <p>Lots to love. Less to spend</p>
-            <p>Starting at $399</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item my_carousel_item2"
-          style={{
-            backgroundImage: `url(${Tablet})`,
-          }}
-        >
-          <div className="description">
-            <h3>Tablet</h3>
-            <p>Just the right amount of everything</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item my_carousel_item2"
-          style={{
-            backgroundImage: `url(${Airpods})`,
-          }}
-        >
-          <div className="description">
-            <h3>Buy a Tablet or xPhone for collge</h3>
-            <h3>Get arPods</h3>
-          </div>
-        </div>
+        <div className="_item">1</div>
+        <div className="_item">2</div>
+        <div className="_item">3</div>
       </Carousel>
-      <p>autoplay:false | indicator:false | 1440*900</p>
+      <p>autoplay:false | indicator:false | 480*300</p>
       <Carousel
         autoplay={false}
         indicator={false}
-        width={1440}
-        height={900}
+        width={480}
+        height={300}
         style={{ margin: "0 auto" }}
       >
-        <div
-          className="my_carousel_item my_carousel_item3 _white"
-          style={{
-            backgroundImage: `url(${Phone})`,
-          }}
-        >
-          <div className="description">
-            <h3>xPhone</h3>
-            <p>Lots to love. Less to spend</p>
-            <p>Starting at $399</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item my_carousel_item3"
-          style={{
-            backgroundImage: `url(${Tablet})`,
-          }}
-        >
-          <div className="description">
-            <h3>Tablet</h3>
-            <p>Just the right amount of everything</p>
-          </div>
-        </div>
-        <div
-          className="my_carousel_item my_carousel_item3"
-          style={{
-            backgroundImage: `url(${Airpods})`,
-          }}
-        >
-          <div className="description">
-            <h3>Buy a Tablet or xPhone for collge</h3>
-            <h3>Get arPods</h3>
-          </div>
-        </div>
+        <div className="_item">1</div>
+        <div className="_item">2</div>
+        <div className="_item">3</div>
       </Carousel>
       <br />
       <br />
