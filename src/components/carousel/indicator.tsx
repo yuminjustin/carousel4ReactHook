@@ -7,6 +7,7 @@ const Indicator: React.FC<{
   idx: number;
   duration: number;
   click: Function;
+  play: boolean;
 }> = (props) => {
   const [num] = useState<Array<number>>(numberArray(props.num));
   return (
@@ -19,6 +20,7 @@ const Indicator: React.FC<{
             idx={props.idx}
             duration={props.duration}
             click={props.click}
+            play={props.play}
           />
         );
       })}

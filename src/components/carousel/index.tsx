@@ -117,7 +117,13 @@ const Carousel: React.FC<{
   ];
 
   const indicators = (
-    <Indicator num={numo} idx={idx} duration={duration} click={indicatorFunc} />
+    <Indicator
+      play={play}
+      num={numo}
+      idx={idx}
+      duration={duration}
+      click={indicatorFunc}
+    />
   );
 
   return numo === 0 ? (
