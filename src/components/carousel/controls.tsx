@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { isEmpty } from "./tool";
 
-const Controls = (props: any) => {
+const Controls: React.FC<{
+  isprev?: boolean;
+  action?: Function;
+}> = props => {
   const [isprev] = useState<boolean>(props.isprev || isEmpty(props.isprev));
   const action = (): void => {
     props.action && props.action();

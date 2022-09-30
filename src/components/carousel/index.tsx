@@ -3,9 +3,18 @@ import "./carousel.scss";
 import Controls from "./controls";
 import Indicator from "./indicator";
 import { isEmpty, sliderSort } from "./tool";
-import { Options } from "./options";
 
-const Carousel = (props: Options) => {
+const Carousel: React.FC<{
+  children: Array<ReactNode> | ReactNode;
+  style?: object;
+  width?: number; //宽度，不设置则为屏幕宽度
+  height?: number; //高度，不设置则为300px
+  loop?: boolean; //是否是循环列表，默认true
+  indicator?: boolean; //是否有指示器，默认true
+  controls?: boolean; //是否有左右按钮，默认true
+  autoplay?: boolean; //是否自动播放，默认true
+  duration?: number; //每一帧停顿时间，基于autoplay为true的时候，默认3000ms
+}> = (props) => {
   const [init] = useState<boolean>(!0);
   const [numo] = useState<number>(React.Children.count(props.children) || 0); // origin
   const [num, setNum] = useState<number>(numo || 0);
@@ -29,8 +38,7 @@ const Carousel = (props: Options) => {
   const [items, setItems] = useState<Array<ReactNode>>([]); // children
   const [style, setStyle] = useState<object>({}); // style
   let el = useRef<HTMLDivElement>(null);
-  let loopRef = useRef<any>(null);
-  let id: any;
+  let loopRef = useRef<VoidFunction>(() => {});
   loopRef.current = () => next();
 
   const prev = (): void => {
@@ -81,6 +89,7 @@ const Carousel = (props: Options) => {
       });
       if (temp.length === 2 && loop) {
         /* 两个子元素 */
+
         temp = temp.concat(temp);
         setItems(temp);
         setNum(4);
@@ -89,17 +98,18 @@ const Carousel = (props: Options) => {
     }
     autoplay && setPlay(!0);
     autoplay && addEvents();
-  }, [init]);
+  }, [init, autoplay, loop, numo, props.children, width]);
 
   useEffect(() => {
-    if (play) id = setInterval(loopRef.current, duration);
+    let id: number | undefined = undefined;
+    if (play) id = window.setInterval(loopRef.current, duration);
     else clearInterval(id);
     return () => clearInterval(id);
-  }, [play, idx]);
+  }, [play, idx, duration]);
 
   useEffect(() => {
     setStyle(Object.assign({}, props.style || {}, { width, height }));
-  }, [width]);
+  }, [width, height, props.style]);
 
   const controlsBtns = [
     <Controls isprev={true} action={prev} key="prev" />,

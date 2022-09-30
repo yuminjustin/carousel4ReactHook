@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import IndicatorItem from "./indicator_item";
 import { numberArray } from "./tool";
 
-const Indicator = (props: any) => {
+const Indicator: React.FC<{
+  num: number;
+  idx: number;
+  duration: number;
+  click: Function;
+}> = (props) => {
   const [num] = useState<Array<number>>(numberArray(props.num));
   return (
     <div className="_indicator">

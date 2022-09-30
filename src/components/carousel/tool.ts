@@ -1,4 +1,4 @@
-const clone = (obj: any): any => JSON.parse(JSON.stringify(obj));
+const clone = (obj: any): typeof obj => JSON.parse(JSON.stringify(obj));
 
 const isEmpty = (sth: any): boolean => {
   return (
@@ -9,14 +9,14 @@ const isEmpty = (sth: any): boolean => {
 
 const sliderSort = (num: number): Array<Array<number>> => {
   let re: Array<Array<number>> = [],
-    origin: Array<any> = [];
+    origin: Array<number> = [];
   for (let i = 0; i < num; i++) {
     origin.push(i + 1 === num ? -1 : i);
   }
   for (let j = 0; j < num; j++) {
     if (j !== 0) {
-      let _last = origin.pop();
-      origin.unshift(_last);
+      let _last: number | undefined = origin.pop();
+      typeof _last === "number" && origin.unshift(_last);
     }
     re.push(clone(origin));
   }
